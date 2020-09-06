@@ -8,13 +8,13 @@ requires the log file from [droberson/ssh-honeypot](https://github.com/droberson
 ## docker
 
 ```bash
-docker build -t konstfish/ssh_honeypot_exporter
+docker build -t konstfish/ssh_honeypot_exporter .
 docker run -p 9567:9567 -v /path/to/log/honeypot.json:/opt/honeypot.json konstfish/ssh_honeypot_exporter
 ```
 
 ## docker-compose
 
-```
+```yaml
 prometheus_ssh_honeypot:
     build: ./ssh_honeypot_exporter
     ports:
@@ -25,7 +25,7 @@ prometheus_ssh_honeypot:
 
 ## prometheus config
 
-```
+```yaml
 - job_name: 'ssh_honeypot'
   scrape_interval: 10m
   scrape_timeout: 5m
