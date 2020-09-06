@@ -30,5 +30,5 @@ prometheus_ssh_honeypot:
   scrape_interval: 10m
   scrape_timeout: 5m
   static_configs:
-    - targets: ['prometheus_ssh_honeypot:5000']
+    - targets: ['prometheus_ssh_honeypot:9567']
 ```
