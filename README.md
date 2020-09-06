@@ -22,3 +22,13 @@ prometheus_ssh_honeypot:
     volumes:
         - /path/to/log/honeypot.json:/opt/honeypot.json
 ```
+
+## prometheus config
+
+```
+- job_name: 'ssh_honeypot'
+  scrape_interval: 10m
+  scrape_timeout: 5m
+  static_configs:
+    - targets: ['prometheus_ssh_honeypot:5000']
+```
