@@ -5,10 +5,14 @@ import requests
 import time
 import json
 
+file = 'honeypot.json'
+
 oldres = ''
 diff = ''
 
-file = 'honeypot.json'
+f=open(file, 'r')
+oldres = f.read()
+f.close()
 
 def log(message):
     now = datetime.now()
