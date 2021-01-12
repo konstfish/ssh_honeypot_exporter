@@ -5,7 +5,7 @@ import requests
 import time
 import json
 
-file = '/home/fish/docker/ssh-honeypot/ssh-honeypot/log/honeypot_b2.json'
+file = 'honeypot.json'
 
 oldres = ''
 diff = ''
