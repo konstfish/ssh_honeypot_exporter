@@ -5,13 +5,13 @@ import requests
 import time
 import json
 
-file = 'honeypot.json'
+file = '/home/fish/docker/ssh-honeypot/ssh-honeypot/log/honeypot_b2.json'
 
 oldres = ''
 diff = ''
 
-f=open(file, 'r')
-oldres = f.read()
+f=open(file, 'rb')
+oldres = f.read().decode(errors='replace')
 f.close()
 
 def log(message):
@@ -22,8 +22,8 @@ def log(message):
 def update_list():
     global diff
     global oldres
-    f=open(file, 'r')
-    text = f.read()
+    f=open(file, 'rb')
+    text = f.read().decode(errors='replace')
     f.close()
     diff = text.replace(oldres, '')
     oldres = text
@@ -42,7 +42,7 @@ def fetch():
                 r = requests.get('https://freegeoip.live/json/'+ip)
                 asa = r.json()
                 ipdict[ip] = asa['country_code']
-                
+
                 if(asa['country_code'] in locdict):
                     locdict[asa['country_code']] += 1
                 else:
